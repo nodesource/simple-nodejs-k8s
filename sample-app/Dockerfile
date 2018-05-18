@@ -1,4 +1,4 @@
-FROM nodesource/nsolid:carbon-latest
+FROM node:8
 
 RUN mkdir -p /usr/src/app
 
@@ -8,4 +8,4 @@ ADD package.json /usr/src/app/package.json
 RUN npm install --production
 ADD server.js /usr/src/app/server.js
 
-ENTRYPOINT ["nsolid", "server.js"]
+ENTRYPOINT ["node", "server.js"]

@@ -1,28 +1,24 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: sample-app
+  name: hello-world
   labels:
-    app: sample-app
+    app: hello-world
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: sample-app
+        app: hello-world
     spec:
       containers:
-        - name: sample-app
+        - name: hello-world
           image: ${usernmae}/${imageName}${tag}
           env:
-            - name: NSOLID_APPNAME
-              value: sample-app
-            - name: NSOLID_COMMAND
-              value: "console.nsolid:9001"
-            - name: NSOLID_DATA
-              value: "console.nsolid:9002"
-            - name: NSOLID_BULK
-              value: "console.nsolid:9003"
+            - name: APP_NAME
+              value: "hello-world"
+              - name: TEST_ME
+              value: "Okay fine, I believe you."
             - name: K8_NODE
               valueFrom:
                 fieldRef:
@@ -39,10 +35,20 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-            - name: NSOLID_TAGS
-              value: "nsolid-v3, $(K8_NODE), $(K8_POD), NS:$(K8_NS), $(K8_IP)"
             - name: PORT
               value: "4444"
           ports:
             - containerPort: 4444
-              name: sample-app
+              name: hello-world
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: hello-world
+  selector:
+    app: hello-world
