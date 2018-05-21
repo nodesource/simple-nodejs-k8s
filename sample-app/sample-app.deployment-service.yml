@@ -1,23 +1,23 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: sample-app
   labels:
-    app: hello-world
+    app: sample-app
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: hello-world
+        app: sample-app
     spec:
       containers:
-        - name: hello-world
-          image: ${usernmae}/${imageName}${tag}
+        - name: sample-app
+          image: ${dockerHubUsername}/${imageName}${tag}
           env:
             - name: APP_NAME
-              value: "hello-world"
-              - name: TEST_ME
+              value: "sample-app"
+            - name: TEST_ME
               value: "Okay fine, I believe you."
             - name: K8_NODE
               valueFrom:
@@ -39,16 +39,16 @@ spec:
               value: "4444"
           ports:
             - containerPort: 4444
-              name: hello-world
+              name: sample-app
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world
+  name: sample-app
 spec:
   type: LoadBalancer
   ports:
     - port: 80
-      targetPort: hello-world
+      targetPort: sample-app
   selector:
-    app: hello-world
+    app: sample-app
