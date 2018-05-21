@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "sample-app",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,7 +8,7 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "moment": "2.19.3",
     "qs": "2.2.0"
