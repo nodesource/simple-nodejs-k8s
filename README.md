@@ -4,7 +4,7 @@
 
 This repository is for deploying a sample [Node.js](https://nodesource.com/products/nsolid) application with [Kubernetes](http://kubernetes.io/) and [GKE](https://cloud.google.com/kubernetes-engine/).
 
-![Kubernetes Relationships](docs/images/kubernetes-scopes.png)
+![Kubernetes Relationships](docs/images/kubernetes-relationships.png)
 
 ### Table of Contents
 - [Installing Kubernetes](#a1)
