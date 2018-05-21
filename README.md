@@ -1,4 +1,4 @@
-[![Node.js, Docker, and Kubernetes](docs/images/container-banner.jpg)](https://nodesource.com/)
+[![Node.js, Docker, and Kubernetes](docs/images/container-banner.png)](https://nodesource.com/)
 
 ## Overview
 
