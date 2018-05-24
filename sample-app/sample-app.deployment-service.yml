@@ -18,7 +18,7 @@ spec:
             - name: APP_NAME
               value: "sample-app"
             - name: TEST_ME
-              value: "Okay fine, I believe you."
+              value: "Hello, world!"
             - name: K8_NODE
               valueFrom:
                 fieldRef:
